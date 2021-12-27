@@ -85,6 +85,7 @@ form button {
 
 .todos--container {
   height: 80vh;
+  max-width: 800px;
 }
 
 .todos--container ul {

@@ -7,7 +7,8 @@ const addTodoButton      = document.querySelector("#add--btn")
 
 
 
-addTodoButton.addEventListener("click", () => addTodo());
+addTodoButton.addEventListener("click", () => addTodo())
+todoContainer.addEventListener("click", (e) => deleteTodo(e))
 
 const addTodo = () => {
   // Create list element
@@ -38,4 +39,13 @@ const addTodo = () => {
 
   todoInput.value = ""
 
+}
+
+const deleteTodo = (e) => {
+  // get the target being clicked.
+  const item = e.target
+
+  // if is the delete button then delete the li element.
+  if (item.classList.contains("fa-minus-circle")) item.parentElement.parentElement.remove()
+  
 }
