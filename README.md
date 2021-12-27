@@ -1,0 +1,11 @@
+## Style guide
+
+#### FONT FAMILY:
+- Open Sans
+
+#### COLORS:
+
+- MAIN PURPLE: #5C164E
+- VIOLET: #9B287B
+- DARK PURPLE: #402039
+- JUSTINCASE: #E2FCEF

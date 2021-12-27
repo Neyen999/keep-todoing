@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Open sans', sans-serif;
+}
+
+svg {
+  position: fixed;
+  z-index: -1;
+  bottom: 0;
+}
+
+:root {
+  --main-purple: #5C164E;
+  --violet: #9B287B;
+  --dark-purple: #402039;
+  --variant: #E2FCEF;
+  --white: #fff;
+  --black: #000;
+  --gray: #b1b1b1;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+i {
+  pointer-events: none;
+}
+
+body {
+  background-color: var(--dark-purple);
+  color: var(--white);
+}
+
+h1 {
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  height: 10vh;
+}
+
+.form--container {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  width: 90%;
+  max-width: 400px;
+}
+
+form input {
+  padding: 0 0 0 10px;
+  width: 85%;
+  height: 50px;
+  outline: none;
+  border: none;
+  /* border-top-left-radius: 22px;
+  border-bottom-left-radius: 22px; */
+  border-radius: 22px 12px 12px 22px;
+  background-color: #170F11;
+  color: var(--white);
+}
+
+form button {
+  height: 50px;
+  width: 40px;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  background-color: #170F11;
+  color: var(--white);
+  font-size: 700;
+}
+
+.todos--container {
+  height: 80vh;
+}
+
+.todos--container ul {
+  margin: 0 auto;
+  width: 90%;
+  height: 500px;
+  max-height: 500px;
+  overflow: hidden;
+  background-color: var(--violet);
+  border-radius: 22px;
+}
+
+.todos--container ul li {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px;
+}
+
+.todos--container ul li div{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 0 22px 22px 0;
+  /* background-color: var(--white); */
+}
+
+
+.todos--container ul li button {
+  margin: 0 5px;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  color: #402039;
+}
+
+.todos--container ul li button:nth-child(1):hover {
+  color: #9AE66E;
+}
+
+.todos--container ul li button:nth-child(2):hover {
+  color: #f74747;
+}
+
+.todos--container ul li:nth-child(1) {
+  border-radius: 22px 22px 0 0;
+}
