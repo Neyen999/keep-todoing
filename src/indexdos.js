@@ -72,8 +72,8 @@ const printTasks = () => {
 
   if (Object.values(todos).length === 0) {
     todoContainer.innerHTML = `
-      <div class="empty">
-        <p>Añade una tarea</p>
+      <div style="height: 50px" class="rounded text-light d-flex align-items-center justify-content-center bg-dark">
+        <p class="m-0">Añade una tarea</p>
       </diV>
     `
     return
@@ -90,9 +90,11 @@ const printTasks = () => {
   Object.values(todos).forEach(item => {
     const clone = template.cloneNode(true)
     clone.querySelector("p").textContent = item.texto
+    clone.querySelector("p").classList.add("m-0")
+    clone.querySelector("li").classList.add("d-flex", "align-items-center", "justify-content-between", "p-2")
 
     if (item.completado) {
-      clone.querySelector("p").classList.add("checked")
+      clone.querySelector("p").classList.add("checked", "text-decoration-line-through")
       clone.querySelectorAll(".fas")[0].classList.add("checkedicon")
     }
 
@@ -138,24 +140,27 @@ const stateTask = (e) => {
 const filterTodos = (e) => {
   const todos = todoContainer.children
   Array.from(todos).forEach(function(todo) {
-    switch(e.target.value) {
-      case "all":
-        todo.style.display = "flex"
-        break;
+    let paragraph = todo.querySelector("p")
+    console.log(paragraph)
+
+    switch (e.target.value) {
       case "completed":
-        if (todo.querySelector("p").classList.contains("checked")) {
-          todo.style.display = "flex"
+        if (!paragraph.classList.contains("checked")) {
+          todo.classList.add("d-none")
         } else {
-          todo.style.display = "none"
+          todo.classList.remove("d-none")
         }
         break;
-      case "uncompleted":
-        if (todo.querySelector("p").classList.contains("checked")) {
-          todo.style.display = "none"
-        } else {
-          todo.style.display = "flex"
-        }
+      case "all":
+        todo.classList.remove("d-none")
         break;
+      case "uncompleted": 
+      if (paragraph.classList.contains("checked")) {
+        todo.classList.add("d-none")
+      } else {
+        todo.classList.remove("d-none")
+      }
+      break;
     }
   })
 }

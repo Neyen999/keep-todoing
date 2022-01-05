@@ -8,12 +8,6 @@ html {
   font-family: 'Open sans', sans-serif;
 }
 
-svg {
-  position: fixed;
-  z-index: -1;
-  bottom: 0;
-}
-
 :root {
   --main-purple: #5C164E;
   --violet: #9B287B;
@@ -32,65 +26,28 @@ a {
   text-decoration: none;
 }
 
-body {
-  background-color: var(--dark-purple);
-  color: var(--white);
+.todolist li i:nth-child(1):hover {
+  color: #9AE66E;
 }
 
-h1 {
-  display: grid;
-  place-items: center;
-  padding: 10px;
-  height: 10vh;
+.todolist li i:nth-child(2):hover {
+  color: #f74747;
 }
 
-.form--container {
-  height: 10vh;
-  display: flex;
-  justify-content: center;
-}
+/* todo checked state */
 
-form {
-  width: 100%;
-  max-width: 400px;
-}
-
-form input {
-  padding: 0 0 0 10px;
-  width: 90%;
-  height: 50px;
-  outline: none;
-  border: none;
-  /* border-top-left-radius: 22px;
-  border-bottom-left-radius: 22px; */
-  border-radius: 22px 12px 12px 22px;
-  background-color: #170F11;
-  color: var(--white);
-}
-
-form button {
-  height: 50px;
-  width: 8%;
-  outline: none;
-  border: none;
-  border-radius: 8px;
-  background-color: #170F11;
-  color: var(--white);
-  font-size: 700;
-}
-
-form button:disabled {
+.checked {
   opacity: .5;
 }
 
-.todos--container {
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
+.todolist li .checkedicon {
+  color: #9AE66E;
 }
 
+.completedtasks {
+  z-index: 1;
+}
+/* scrollbar */
 
 .todolist::-webkit-scrollbar {
   width: 12px;               /* width of the entire scrollbar */
@@ -101,97 +58,6 @@ form button:disabled {
 }
 
 .todolist::-webkit-scrollbar-thumb {
-  background-color: white;    /* color of the scroll thumb */
+  background-color: var(--violet);    /* color of the scroll thumb */
   border-radius: 20px;       /* roundness of the scroll thumb */
-}
-
-.todos--container p {
-  margin: 0 auto;
-  width: 90%;
-  max-width: 800px;
-}
-
-.todos--container ul {
-  margin: 0 auto;
-  width: 90%;
-  max-width: 800px;
-  height: fit-content;
-  max-height: 500px;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  background-color: var(--violet);
-  border-radius: 22px;
-  box-shadow: 0 0 22px rgb(32, 32, 32);
-}
-
-.todos--container ul li {
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 10px;
-}
-
-.todos--container ul li div{
-  height: 100%;
-  display: flex;
-  align-items: center;
-  border-radius: 0 22px 22px 0;
-  /* background-color: var(--white); */
-}
-
-
-.todos--container ul li i {
-  margin: 0 5px;
-  background: none;
-  border: none;
-  outline: none;
-  font-size: 1.5rem;
-  color: #402039;
-  cursor: pointer;
-}
-
-.todos--container ul li i:nth-child(1):hover {
-  color: #9AE66E;
-}
-
-.todos--container ul li i:nth-child(2):hover {
-  color: #f74747;
-}
-
-.todos--container ul li:nth-child(1) {
-  border-radius: 22px 22px 0 0;
-}
-
-/* todo checked state */
-
-.checked {
-  opacity: .5;
-}
-
-.todos--container ul li .checkedicon {
-  color: #9AE66E;
-}
-
-.empty {
-  background-color: #333;
-  height: 50px;
-  display: grid;
-  place-items: center;
-  text-align: center;
-}
-
-.progress {
-  position: absolute;
-  left: 2%;
-  top: 2%;
-}
-
-select {
-  margin: 5px 0;
-  padding: 5px;
-  font-family: 'Open sans';
-  outline: none;
-  background-color: #333;
-  color: white;
 }
