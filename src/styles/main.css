@@ -32,10 +32,6 @@ a {
   text-decoration: none;
 }
 
-i {
-  pointer-events: none;
-}
-
 body {
   background-color: var(--dark-purple);
   color: var(--white);
@@ -55,13 +51,13 @@ h1 {
 }
 
 form {
-  width: 90%;
+  width: 100%;
   max-width: 400px;
 }
 
 form input {
   padding: 0 0 0 10px;
-  width: 85%;
+  width: 90%;
   height: 50px;
   outline: none;
   border: none;
@@ -74,7 +70,7 @@ form input {
 
 form button {
   height: 50px;
-  width: 40px;
+  width: 8%;
   outline: none;
   border: none;
   border-radius: 8px;
@@ -92,6 +88,21 @@ form button:disabled {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+}
+
+
+.todolist::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.todolist::-webkit-scrollbar-track {
+  background: #333;        /* color of the tracking area */
+}
+
+.todolist::-webkit-scrollbar-thumb {
+  background-color: white;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
 }
 
 .todos--container p {
@@ -104,7 +115,7 @@ form button:disabled {
   margin: 0 auto;
   width: 90%;
   max-width: 800px;
-  height: 500px;
+  height: fit-content;
   max-height: 500px;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -130,20 +141,21 @@ form button:disabled {
 }
 
 
-.todos--container ul li button {
+.todos--container ul li i {
   margin: 0 5px;
   background: none;
   border: none;
   outline: none;
   font-size: 1.5rem;
   color: #402039;
+  cursor: pointer;
 }
 
-.todos--container ul li button:nth-child(1):hover {
+.todos--container ul li i:nth-child(1):hover {
   color: #9AE66E;
 }
 
-.todos--container ul li button:nth-child(2):hover {
+.todos--container ul li i:nth-child(2):hover {
   color: #f74747;
 }
 
@@ -155,4 +167,31 @@ form button:disabled {
 
 .checked {
   opacity: .5;
+}
+
+.todos--container ul li .checkedicon {
+  color: #9AE66E;
+}
+
+.empty {
+  background-color: #333;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.progress {
+  position: absolute;
+  left: 2%;
+  top: 2%;
+}
+
+select {
+  margin: 5px 0;
+  padding: 5px;
+  font-family: 'Open sans';
+  outline: none;
+  background-color: #333;
+  color: white;
 }

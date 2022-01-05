@@ -3,6 +3,7 @@
 const todoContainer      = document.querySelector(".todolist")
 const todoInput          = document.querySelector("#search-input")
 const addTodoButton      = document.querySelector("#add--btn")
+const filterSelect       = document.querySelector("#filtertodo")
 
 document.addEventListener("DOMContentLoaded", () => {
   getLocalTodos()
@@ -18,38 +19,40 @@ todoContainer.addEventListener("click", (e) => {
   checkTodo(e)
 })
 
+filterSelect.addEventListener("click", (e) => filterTodos(e))
+
 const addTodo = () => {
   // Create list element
-      const todo            = document.createElement("li")      // list element container
-      const todoDescription = document.createElement("p")       // list element description
-      const todoButtonsCont = document.createElement("div")     // buttons container
-      const deleteTodoBtn   = document.createElement("button")  // delete button
-      deleteTodoBtn.classList.add("fas", "fa-minus-circle")
-      const checkTodoBtn    = document.createElement("button")  // check button
-      checkTodoBtn.classList.add("fas", "fa-check-circle")
+  const todo            = document.createElement("li")      // list element container
+  const todoDescription = document.createElement("p")       // list element description
+  const todoButtonsCont = document.createElement("div")     // buttons container
+  const deleteTodoBtn   = document.createElement("button")  // delete button
+  deleteTodoBtn.classList.add("fas", "fa-minus-circle")
+  const checkTodoBtn    = document.createElement("button")  // check button
+  checkTodoBtn.classList.add("fas", "fa-check-circle")
 
-      // Add the input text on the description
+  // Add the input text on the description
 
-      todoDescription.innerText = todoInput.value
+  todoDescription.innerText = todoInput.value
 
-      // Add todos to localStorage
+  // Add todos to localStorage
 
-      setLocalStorageTodo(todoInput.value)
-      checkTodosLength()
+  setLocalStorageTodo(todoInput.value)
+  checkTodosLength()
 
-      // Append the buttons on the div
+  // Append the buttons on the div
 
-      todoButtonsCont.append(checkTodoBtn, deleteTodoBtn)
+  todoButtonsCont.append(checkTodoBtn, deleteTodoBtn)
 
-      // // Append the description and the buttons container on the li
+  // // Append the description and the buttons container on the li
 
-      todo.append(todoDescription, todoButtonsCont)
+  todo.append(todoDescription, todoButtonsCont)
 
-      // // Now append the li element on the ul
-      todoContainer.appendChild(todo)
+  // // Now append the li element on the ul
+  todoContainer.appendChild(todo)
 
 
-      todoInput.value = ""
+  todoInput.value = ""
 }
 
 const deleteTodo = (e) => {
@@ -83,10 +86,12 @@ const checkTodo = (e) => {
  */
 
 const setLocalStorageTodo = (todo) => {
-  let todos; 
+  let todos;
+  let completed;
 
   if (localStorage.getItem('todos') === null) {
     todos = [];
+    completed = [];
   } else {
     todos = JSON.parse(localStorage.getItem('todos'))
   }
@@ -167,4 +172,30 @@ const checkTodosLength = () => {
   } else {
     todoContainer.style.overflowY = "hidden"
   }
+}
+
+const filterTodos = (e) => {
+  const todos = todoContainer.childNodes;
+  console.log(todos)
+  todos.forEach(function(todo) {
+    switch(e.target.value) {
+      case "all":
+        todo.style.display = "flex"
+        break;
+      case "completed":
+        if (todo.classList.contains("checked")) {
+          todo.style.display = "flex"
+        } else {
+          todo.style.display = "none"
+        }
+        break;
+      case "uncompleted":
+        if (todo.classList.contains("checked")) {
+          todo.style.display = "none"
+        } else {
+          todo.style.display = "flex"
+        }
+        break;
+    }
+  })
 }

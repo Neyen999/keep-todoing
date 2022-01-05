@@ -14,51 +14,39 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+  <div class="progress">
+    <p>Completed Tasks: </p><span id="progress">0 / 0</span>
+  </div>
   <h1>ToDO List</h1>
   <div class="form--container">
     <form id="form">
-      <input id="search-input" type="text" placeholder="Escribe tus tareas por realizar">
-      <button id="add--btn" type="button">
+      <input autofocus id="search-input" type="text" placeholder="Escribe tus tareas por realizar">
+      <button id="add--btn">
         +
       </button>
+      <select name="" id="filtertodo">
+        <option value="all">Todos</option>
+        <option value="completed">Completos</option>
+        <option value="uncompleted">Incompletos</option>
+      </select>
     </form>
   </div>
   <div class="todos--container">
-    <ul class="todolist">
-      <!-- <li>
-        Modelo de tarea 
-        <div>
-          <button><i class="fas fa-plus-circle"></i></button> <button><i class="fas fa-minus-circle"></i></button>
-        </div>
-      </li>
-      <li>
-        Modelo de tarea 
-        <div>
-          <button><i class="fas fa-plus-circle"></i></button> <button><i class="fas fa-minus-circle"></i></button>
-        </div>
-      </li>
-      <li>
-        Modelo de tarea 
-        <div>
-          <button><i class="fas fa-plus-circle"></i></button> <button><i class="fas fa-minus-circle"></i></button>
-        </div>
-      </li>
-      <li>
-        Modelo de tarea 
-        <div>
-          <button><i class="fas fa-plus-circle"></i></button> <button><i class="fas fa-minus-circle"></i></button>
-        </div>
-      </li>
-      <li>
-        Modelo de tarea 
-        <div>
-          <button><i class="fas fa-plus-circle"></i></button> <button><i class="fas fa-minus-circle"></i></button>
-        </div>
-      </li> -->
-      
-    </ul>
+    <ul class="todolist"></ul>
   </div>
+
+
+  <template id="template">
+    <li>
+      <p>task</p>
+      <div>
+        <i class="fas fa-check-circle check" role="button"></i>
+        <i class="fas fa-minus-circle delete" role="button"></i>
+      </div>
+    </li>
+  </template>
+
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#9B287B" fill-opacity="1" d="M0,96L10.4,96C20.9,96,42,96,63,117.3C83.5,139,104,181,125,192C146.1,203,167,181,188,192C208.7,203,230,245,250,266.7C271.3,288,292,288,313,293.3C333.9,299,355,309,376,293.3C396.5,277,417,235,438,197.3C459.1,160,480,128,501,128C521.7,128,543,160,563,160C584.3,160,605,128,626,96C647,64,668,32,689,64C709.6,96,730,192,751,218.7C772.2,245,793,203,814,192C834.8,181,856,203,877,181.3C897.4,160,918,96,939,74.7C960,53,981,75,1002,112C1022.6,149,1043,203,1064,186.7C1085.2,171,1106,85,1127,53.3C1147.8,21,1169,43,1190,53.3C1210.4,64,1231,64,1252,85.3C1273,107,1294,149,1315,149.3C1335.7,149,1357,107,1377,90.7C1398.3,75,1419,85,1430,90.7L1440,96L1440,320L1429.6,320C1419.1,320,1398,320,1377,320C1356.5,320,1336,320,1315,320C1293.9,320,1273,320,1252,320C1231.3,320,1210,320,1190,320C1168.7,320,1148,320,1127,320C1106.1,320,1085,320,1064,320C1043.5,320,1023,320,1002,320C980.9,320,960,320,939,320C918.3,320,897,320,877,320C855.7,320,835,320,814,320C793,320,772,320,751,320C730.4,320,710,320,689,320C667.8,320,647,320,626,320C605.2,320,584,320,563,320C542.6,320,522,320,501,320C480,320,459,320,438,320C417.4,320,397,320,376,320C354.8,320,334,320,313,320C292.2,320,271,320,250,320C229.6,320,209,320,188,320C167,320,146,320,125,320C104.3,320,83,320,63,320C41.7,320,21,320,10,320L0,320Z"></path></svg>
-  <script src="./src/index.js"></script>
+  <script src="./src/indexdos.js"></script>
 </body>
 </html>
